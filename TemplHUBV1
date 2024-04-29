@@ -1,0 +1,176 @@
+local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Orion/main/source'))()
+
+local Window = OrionLib:MakeWindow({
+    Name = "Templ Hub",
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "Templ Hub",
+    IntroEnabled = true,
+    IntroText = "Welcome to Templ Hub!",
+    IntroIcon = "URL_TO_YOUR_INTRO_IMAGE",
+    Icon = "URL_TO_YOUR_WINDOW_ICON",
+    CloseCallback = function()
+        -- Your close callback function here
+    end
+})
+
+-- Home
+local Home = Window:MakeTab({
+    Name = "🏠 Home",
+    Icon = nil,
+    PremiumOnly = false
+})
+
+local Credits = Home:AddSection({
+    Name = "Credits"
+})
+
+Home:AddLabel("Owner = Templ")
+Home:AddLabel("Beta Testers = Beast.44k")
+
+-- Useful 
+local Useful = Window:MakeTab({
+    Name = "🔨 Useful",
+    Icon = nil,
+    PremiumOnly = false
+})
+
+Useful:AddButton({
+    Name = "Simple Spy",
+    Callback = function()
+        loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
+        OrionLib:MakeNotification({
+            Name = "Opened new GUI",
+            Content = "Opened Simple Spy",
+            Image = nil,
+            Time = 2
+        })
+    end    
+})
+
+Useful:AddButton({
+    Name = "Infinite Yield",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+        OrionLib:MakeNotification({
+            Name = "Opened new GUI",
+            Content = "Opened Infinite Yield",
+            Image = nil,
+            Time = 2
+        })
+    end    
+})
+
+-- Fun
+local Fun = Window:MakeTab({
+    Name = "🎈 Fun",
+    Icon = nil,
+    PremiumOnly = false
+})
+
+Fun:AddSlider({
+    Name = "Walkspeed",
+    Min = 0,
+    Max = 300,
+    Default = 16,
+    Color = Color3.fromRGB(255,255,255),
+    Increment = 1,
+    ValueName = "Speed",
+    Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+    end    
+})
+
+OrionLib:MakeNotification({
+    Name = "Changed Value",
+    Content = "Changed Walkspeed Value!",
+    Image = nil,
+    Time = 2
+})
+
+-- Blox fruits
+
+local BloxFruits = Window:MakeTab({
+    Name = "🏴‍☠️ Blox Fruits",
+    Icon = nil,
+    PremiumOnly = false
+})
+
+-- Desert
+local Desert = BloxFruits:AddSection({
+    Name = "Desert"
+})
+
+--[[
+Name = <string> - The name of the section.
+]]
+
+Desert:AddButton({
+    Name = "Get First Quest",
+    Callback = function()
+        local args = {
+            [1] = "StartQuest",
+            [2] = "DesertQuest",
+            [3] = 1
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    end
+})
+
+Desert:AddButton({
+    Name = "Get Second Quest",
+    Callback = function()
+        local args = {
+            [1] = "StartQuest",
+            [2] = "DesertQuest",
+            [3] = 2
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    end
+})
+
+-- Pirate Village
+local PV = BloxFruits:AddSection({
+    Name = "Pirate Village"
+})
+
+--[[
+Name = <string> - The name of the section.
+]]
+
+PV:AddButton({
+    Name = "Get First Quest",
+    Callback = function()
+        local args = {
+            [1] = "StartQuest",
+            [2] = "BuggyQuest1",
+            [3] = 1
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    end
+})
+
+PV:AddButton({
+    Name = "Get Second Quest",
+    Callback = function()
+        local args = {
+            [1] = "StartQuest",
+            [2] = "BuggyQuest1",
+            [3] = 2
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    end
+})
+
+PV:AddButton({
+    Name = "Get Third Quest",
+    Callback = function()
+        local args = {
+            [1] = "StartQuest",
+            [2] = "BuggyQuest1",
+            [3] = 3
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    end
+})
+OrionLib:Init()
